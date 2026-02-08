@@ -1,32 +1,33 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import { Navlink } from 'react-router-dom'
+// ✅ Correct
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
       <img src={assets.logo} alt="" />
       <ul>
 
-        <Navlink>
-            <li>HOME</li>
-            <hr />
-        </Navlink>
+        <NavLink>
+          <li>HOME</li>
+          <hr />
+        </NavLink>
 
-        <Navlink>
-            <li>ALL DOCTORS</li>
-            <hr />
-        </Navlink>
+        <NavLink>
+          <li>ALL DOCTORS</li>
+          <hr />
+        </NavLink>
 
-        <Navlink>
-            <li>ABOUT</li>
-            <hr />
-        </Navlink>
+        <NavLink>
+          <li>ABOUT</li>
+          <hr />
+        </NavLink>
 
-        <Navlink>
-            <li>CONTACT</li>
-            <hr />
-        </Navlink>
+        <NavLink>
+          <li>CONTACT</li>
+          <hr />
+        </NavLink>
 
       </ul>
 
