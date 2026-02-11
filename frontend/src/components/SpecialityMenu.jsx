@@ -1,14 +1,24 @@
 import React from 'react'
+import { specialityData } from '../assets/assets'
+import { Link } from 'react-router-dom'
 
 const SpecialityMenu = () => {
   return (
-    <div id='speciality'>
-      <h1>
+    <div className='flex flex-col items-center gap-4 py-16 text-gray-800' id='speciality'>
+      <h1 className='text-3xl font-medium'>
         Find By Speciality
       </h1>
-      <p>
-        Explore our comprehensive list of medical specialties and find the right doctor for your specific healthcare needs. Whether you're seeking a general practitioner, a specialist in cardiology, dermatology, pediatrics, or any other field, our platform allows you to easily search and connect with qualified doctors in your area. Browse through our extensive directory of medical specialties to find the expertise you require for your health and well-being.
+      <p className='sm:w-1/2 text-center text-sm'>
+        Explore our comprehensive list of medical specialties and find the right doctor for your specific healthcare needs. Browse through our extensive directory of medical specialties.
       </p>
+      <div className='flex sm:justify-center gap-4 pt-5w-full overflow-scroll'>
+        {specialityData.map((item,index)=>(
+            <Link onClick={()=>scrollTo(0,0)} className='flex flex-col items-center text-xs cursor-pointer flex-shrink-0 hover:translate-y-[-10px] transition-all duration-500' key={index} to={`/doctors/${item.speciality}`}>
+                <img className='w-16 sm:w-24 mb-2' src={item.image} alt='' />
+                <p>{item.speciality}</p>
+            </Link>
+        ))}
+      </div>
     </div>
   )
 }
