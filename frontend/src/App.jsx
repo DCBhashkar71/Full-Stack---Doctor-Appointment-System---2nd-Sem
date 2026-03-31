@@ -12,24 +12,13 @@ import Login from './pages/Login';
 import MyProfile from './pages/MyProfile';
 import MyAppointments from './pages/MyAppointments';
 
-import { useEffect } from "react";
-import axios from "axios";
-
-
-
 const App = () => {
-
-  useEffect(() => {
-  axios.get("http://localhost:4000/api/test")
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err));
-}, []);
-
   const { token } = useContext(AppContext);
 
-  const ProtectedRoute = ({ children }) => token ? children : <Navigate to="/login" />;
-
-  
+  // ✅ Correct Protected Route (React version)
+  const ProtectedRoute = ({ children }) => {
+    return token ? children : <Navigate to="/login" replace />;
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
